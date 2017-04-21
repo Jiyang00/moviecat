@@ -1,12 +1,10 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('movieCat', [
   'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
+  'movieCat.movie_list',
+  'movieCat.directive.auto_focus'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: 'in_theaters/1'});
 }]);
