@@ -1,0 +1,29 @@
+<h1  class="page-header">{{title}}</h1>
+<div class="list-group">
+	<a href="#" ng-repeat="item in subject" class="list-group-item">
+		<span class="badge">{{item.rating.average}}</span>
+		<div class="media" style="margin-top: 0">
+			<div class="media-left">
+				<img class="media-object" ng-src="{{item.images.medium}}">
+			</div>
+			<div class="media-body">
+				<h3 class="media-heading">{{item.title}}</h3>
+				<p>类型:<strong>{{item.genres.toString()}}</strong>&nbsp;&nbsp;上映年份<strong>{{item.year}}</strong></p>
+				<p>导演:<strong ng-repeat="directories in item.directors">{{directories.name}}<span ng-if="!$last">、</span></strong></p>
+				<p>主演:<strong ng-repeat="actor in item.casts">{{actor.name}}<span ng-if="!$last">、</span></strong></p>
+			</div>
+		</div>
+	</a>
+</div>
+<button type="button" class="btn btn-default" aria-label="Left Align" ng-click="sub()">
+	<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+</button>
+<button type="button" class="btn btn-default" ng-repeat="item in everyPage" ng-click="jumpTo(item)">{{item}}</button>
+<button type="button" class="btn btn-default" aria-label="Left Align" ng-click="sum()">
+	<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+</button>
+<p>总共{{totalCount}}条</p>
+<div class="spinner" ng-show="loading">
+	<div class="dot1"></div>
+	<div class="dot2"></div>
+</div>
